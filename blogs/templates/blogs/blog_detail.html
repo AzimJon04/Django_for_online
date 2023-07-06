@@ -1,0 +1,10 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+    <ul><h4>{{ blog.title }}</h4></ul>
+    <h5>{{ blog.description }}</h5>
+    <p><i><b>{{ blog.author }}:</b>
+    {{ blog.createdate | date:"d.m.Y H:i" }}</i></p>
+    <a href="{% url 'update_blog' blog.pk %}">Edit blog</a>
+    <a href="{% url 'delete_blog' blog.pk %}">Delete blog</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+    {% if blogs %}
+        {% for blog in blogs %}
+            <ul>
+                <li><h4><a href="{% url 'detail_blog' blog.pk %}">{{ blog.title }}</a></h4><br>
+                <p>{{ blog.author }}: {{ blog.createdate | date:"d.m.Y H:i" }}</p></li>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No bolgs</p>
+    {% endif %}
+
+{% endblock %}
